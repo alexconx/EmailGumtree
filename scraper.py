@@ -42,16 +42,17 @@ for i in range (0, len(list_url)-1) :
     page = requests.get(list_url[i])
     soup = BeautifulSoup(page.content, 'html.parser')
     print(i)
-    dl_data = soup.find_all("dd")
-    if len(dl_data) > 1 :
-        list_date.append(dl_data[1].text)
-    else :
-         list_date.append("None")            
-    loc_data = soup.find(class_='ad-heading__ad-map-link google-map-link j-google-map-link')
-    list_location.append(loc_data.text.replace(",", ";"))
+    #dl_data = soup.find_all("dd")
+    #if len(dl_data) > 1 :
+    #    list_date.append(dl_data[1].text)
+    #else :
+    #     list_date.append("None")            
+    #loc_data = soup.find(class_='ad-heading__ad-map-link google-map-link j-google-map-link')
+    #list_location.append(loc_data.text.replace(",", ";"))
     
-    scraperwiki.sqlite.save(unique_keys=['link'], data={"link": list_url[i], "date": list_date[i], "location": list_location[i]})
+    #scraperwiki.sqlite.save(unique_keys=['link'], data={"link": list_url[i], "date": list_date[i], "location": list_location[i]})
+    scraperwiki.sqlite.save(unique_keys=['link'], data={"link": list_url[i]})
     
 print(type(list_url[0]))
-print(type(list_date[0]))
-print(type(list_location[0]))
+#print(type(list_date[0]))
+#print(type(list_location[0]))
