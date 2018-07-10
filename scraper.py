@@ -42,11 +42,11 @@ for i in range (0, len(list_url)-1) :
     page = requests.get(list_url[i])
     soup = BeautifulSoup(page.content, 'html.parser')
     print(i)
-    #dl_data = soup.find_all("dd")
-    #if len(dl_data) > 1 :
-    #    list_date.append(dl_data[1].text)
-    #else :
-    #     list_date.append("None")            
+    dl_data = soup.find_all("dd")
+    if len(dl_data) > 1 :
+        list_date.append(dl_data[1].text)
+    else :
+         list_date.append("None")            
     #loc_data = soup.find(class_='ad-heading__ad-map-link google-map-link j-google-map-link')
     #list_location.append(loc_data.text.replace(",", ";"))
     
