@@ -51,7 +51,7 @@ for i in range (0, len(list_url)-1) :
     #list_location.append(loc_data.text.replace(",", ";"))
     
     #scraperwiki.sqlite.save(unique_keys=['link'], data={"link": list_url[i], "date": list_date[i], "location": list_location[i]})
-    scraperwiki.sqlite.save(unique_keys=['link'], data={"link": list_url[i]}, "date": list_date[i])
+    scraperwiki.sqlite.save(unique_keys=['link'], data={"link": list_url[i], "date": list_date[i])}
     
 print(type(list_url[0]))
 #print(type(list_date[0]))
