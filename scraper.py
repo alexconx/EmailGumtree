@@ -10,6 +10,7 @@ import scraperwiki
 list_url = []
 list_date = []
 list_location = []
+list_name = []
 
 page = requests.get("https://www.gumtree.com.au/s-construction/advertisedby-private/c18346?ad=offering")
 soup = BeautifulSoup(page.content, 'html.parser')
@@ -46,12 +47,16 @@ for i in range (0, len(list_url)-1) :
     if len(dl_data) > 1 :
         list_date.append(dl_data[1].text)
     else :
-         list_date.append("None")            
+         list_date.append("None")          
+            
+    for a in soup.find_all('a', class_='seller-profile__seller-name-text')
+        list_name.append(a.getText())
+    
     #loc_data = soup.find(class_='ad-heading__ad-map-link google-map-link j-google-map-link')
     #list_location.append(loc_data.text.replace(",", ";"))
     
     #scraperwiki.sqlite.save(unique_keys=['link'], data={"link": list_url[i], "date": list_date[i], "location": list_location[i]})
-    scraperwiki.sqlite.save(unique_keys=['link'], data={"link": list_url[i], "date": list_date[i]})
+    scraperwiki.sqlite.save(unique_keys=['link'], data={"link": list_url[i], "date": list_date[i], "name": list_name[i]})
     
 print(type(list_url[0]))
 #print(type(list_date[0]))
