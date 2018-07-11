@@ -25,7 +25,7 @@ for a in soup.find_all('a', href=True, class_='user-ad-row user-ad-row--premium 
     list_url.append("https://www.gumtree.com.au"+a['href'])
     
 #Loop to get the n first pages
-n = 10
+n = 3
 for i in range (2,n) :
     page = requests.get("https://www.gumtree.com.au/s-construction/page-"+str(i)+"/advertisedby-private/c18346?ad=offering")
     soup = BeautifulSoup(page.content, 'html.parser')
