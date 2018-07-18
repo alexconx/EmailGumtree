@@ -49,7 +49,7 @@ for i in range (0, len(list_url)-1) :
     else :
          list_date.append("None")          
             
-    for a in soup.find_all('a', class_='seller-profile__seller-name-text')
+    for a in soup.find_all('a', class_='seller-profile__seller-name-text'):
         list_name.append(a.getText())
     
     #loc_data = soup.find(class_='ad-heading__ad-map-link google-map-link j-google-map-link')
